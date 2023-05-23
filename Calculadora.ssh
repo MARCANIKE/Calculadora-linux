@@ -1,0 +1,33 @@
+#!/bin/bash
+echo "A calculadora de Lola"
+sum=0
+i="y"
+echo "Mete un numero"
+read numero1
+echo "Mete el otro numero"
+read numero2
+while [ $i = "y" ]
+do
+echo "1.Sumar"
+echo "2.Restar"
+echo "3.Multiplicación"
+echo "4.División"
+echo "Mete un númeroo bobo"
+read ch
+case $ch in
+1)sum=$(echo " $numero1 + $numero2" | bc -l)
+echo "Sumar es =" $sum;;
+2)sum=$(echo "$numero1 - $numero2" | bc -l)
+echo "Restar es =" $sum;;
+3)sum=$(echo "$numero1 * $numero2" | bc -l)
+echo "Multiplicar es =" $sum;;
+4)sum=$(echo "$numero1 / $numero2" | bc -l)
+echo "Dividir es =" $sum;;
+*)echo "invalid choice"
+esac
+read i
+if [ $i != "y" ]
+then
+exit
+fi
+done
